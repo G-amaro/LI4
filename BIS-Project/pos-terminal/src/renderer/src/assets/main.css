@@ -1,0 +1,28 @@
+/**
+ * main.css — Entrypoint CSS da renderer.
+ *
+ * Originalmente trazia estilos do template demo (Hello World do electron-vite)
+ * que conflituavam com o Tailwind. Limpado para conter apenas:
+ *   - Reset minimal (via base.css)
+ *   - Directivas Tailwind
+ *
+ * Todos os estilos da aplicação são feitos via classes Tailwind nos componentes.
+ */
+
+@import './base.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Garantir que o body e #root ocupam toda a viewport sem layout flex herdado */
+body {
+  margin: 0;
+  user-select: none;          /* desabilita selecção de texto — UX de POS touch */
+  background: #1e3a8a;        /* fallback para bg-blue-900 caso o root atrase a render */
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
